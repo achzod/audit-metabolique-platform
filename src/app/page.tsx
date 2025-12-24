@@ -1,186 +1,264 @@
 'use client';
 
 import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { ArrowRight, Zap, Shield, TrendingUp, Star, CheckCircle2 } from 'lucide-react';
 
-export default function Home() {
+export default function HomePage() {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="min-h-screen flex flex-col items-center justify-center px-4 py-20 relative overflow-hidden">
-        {/* Background effects */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent" />
-        
-        <div className="text-center z-10 max-w-5xl mx-auto">
-          <p className="text-[#8DFFE0] font-semibold mb-4 tracking-wider uppercase">Achzod Coaching</p>
-          
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
-            <span className="gradient-text">AUDIT MÉTABOLIQUE</span>
+      {/* ============================================
+          🌟 HERO SECTION ULTRA-PREMIUM
+          ============================================ */}
+      <section className="hero-section">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.175, 0.885, 0.32, 1.275] }}
+          className="container"
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="hero-badge"
+          >
+            <Zap className="inline w-4 h-4 mr-2" />
+            5000+ Transformations Réussies
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="mb-6"
+          >
+            AUDIT MÉTABOLIQUE
             <br />
-            <span className="text-white">COMPLET</span>
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Découvre ton <span className="text-[#8DFFE0] font-bold">potentiel inexploité</span> en 5 minutes.
+            <span className="text-gradient">COMPLET</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto"
+            style={{ color: 'rgba(255, 255, 255, 0.85)' }}
+          >
+            Découvre ton <span className="text-gradient font-bold">potentiel inexploité</span> en 5 minutes.
             <br />
-            Rapport personnalisé généré par IA.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Link href="/audit-complet" className="btn-primary pulse-glow">
+            Rapport personnalisé généré par <span className="text-gradient font-bold">IA avancée</span>.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+          >
+            <Link href="/audit-complet" className="btn-primary group">
               🚀 Commencer l'audit GRATUIT
+              <ArrowRight className="inline ml-2 group-hover:translate-x-1 transition-transform" />
             </Link>
-          </div>
-          
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
-            <div className="text-center">
-              <div className="stat-number">5K+</div>
-              <div className="text-gray-400 text-sm">Transformations</div>
-            </div>
-            <div className="text-center">
-              <div className="stat-number">98%</div>
-              <div className="text-gray-400 text-sm">Satisfaction</div>
-            </div>
-            <div className="text-center">
-              <div className="stat-number">11</div>
-              <div className="text-gray-400 text-sm">Certifications</div>
-            </div>
-          </div>
-        </div>
+          </motion.div>
+
+          {/* STATS CARDS */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-16"
+          >
+            {[
+              { number: '5K+', label: 'Transformations', icon: TrendingUp },
+              { number: '98%', label: 'Satisfaction', icon: Star },
+              { number: '11', label: 'Certifications', icon: Shield },
+            ].map((stat, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.7 + i * 0.1 }}
+                className="stat-card"
+              >
+                <stat.icon className="w-8 h-8 mx-auto mb-3 text-[#8DFFE0]" />
+                <div className="stat-number">{stat.number}</div>
+                <div className="stat-label">{stat.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
       </section>
 
-      {/* Comparison Section */}
-      <section className="py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-            Choisis ton <span className="gradient-text">Audit</span>
-          </h2>
-          <p className="text-gray-400 text-center mb-12 text-lg">
-            Gratuit pour découvrir, Premium pour transformer
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Gratuit */}
-            <div className="card">
-              <div className="text-[#8DFFE0] font-semibold mb-2">GRATUIT</div>
-              <div className="text-4xl font-bold mb-4">0€</div>
-              <p className="text-gray-400 mb-6">Aperçu de ton potentiel</p>
-              <ul className="space-y-3 mb-8">
-                {['Analyse de base', 'Score métabolique', 'Top 3 priorités', '4 sections'].map((item, i) => (
-                  <li key={i} className="flex items-center text-gray-300">
-                    <span className="text-[#8DFFE0] mr-3">✓</span>{item}
-                  </li>
-                ))}
+      {/* ============================================
+          💎 COMPARISON SECTION PREMIUM
+          ============================================ */}
+      <section className="py-20 relative">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="section-title"
+          >
+            <h2>Choisis ton <span className="text-gradient">Audit</span></h2>
+            <p className="section-subtitle">Gratuit pour découvrir, Premium pour transformer</p>
+          </motion.div>
+
+          <div className="comparison-grid">
+            {/* GRATUIT CARD */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="comparison-card"
+            >
+              <h3 className="text-2xl font-bold mb-2">GRATUIT</h3>
+              <div className="price">0€</div>
+              <p className="text-lg mb-6" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
+                Aperçu de ton potentiel
+              </p>
+              <ul className="feature-list">
+                <li>Analyse de base</li>
+                <li>Score métabolique</li>
+                <li>Top 3 priorités</li>
+                <li>4 sections</li>
               </ul>
-              <Link href="/audit-complet" className="block text-center py-3 px-6 border-2 border-[#8DFFE0] text-[#8DFFE0] rounded-xl font-bold hover:bg-[#8DFFE0]/10 hover:scale-[1.02] transition-all duration-300">
+              <Link href="/audit-complet" className="btn-secondary w-full">
                 Commencer gratuitement
               </Link>
-            </div>
-            
-            {/* Premium */}
-            <div className="card relative overflow-hidden" style={{borderColor: 'rgba(153, 144, 234, 0.5)'}}>
-              <div className="absolute top-0 right-0 bg-gradient-to-r from-[#8DFFE0] to-[#9990EA] text-black text-xs font-bold px-4 py-1 rounded-bl-lg">
-                RECOMMANDÉ
+            </motion.div>
+
+            {/* PREMIUM CARD */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="comparison-card premium"
+            >
+              <h3 className="text-2xl font-bold mb-2">PREMIUM</h3>
+              <div className="price">
+                79€
+                <span className="text-base font-normal ml-2" style={{ color: 'rgba(255, 255, 255, 0.6)' }}>
+                  147€
+                </span>
               </div>
-              <div className="text-[#9990EA] font-semibold mb-2">PREMIUM</div>
-              <div className="flex items-baseline gap-2 mb-4">
-                <span className="text-gray-500 line-through text-xl">147€</span>
-                <span className="text-4xl font-bold">79€</span>
-              </div>
-              <p className="text-gray-400 mb-6">Transformation complète</p>
-              <ul className="space-y-3 mb-8">
-                {[
-                  'Analyse complète 15 sections',
-                  'Feuille de route personnalisée',
-                  'Projection 30/60/90 jours',
-                  'Protocoles détaillés',
-                  'Support prioritaire'
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center text-gray-300">
-                    <span className="text-[#9990EA] mr-3">✓</span>{item}
-                  </li>
-                ))}
+              <p className="text-lg mb-6" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
+                Transformation complète
+              </p>
+              <ul className="feature-list">
+                <li>Analyse complète 15 sections</li>
+                <li>Feuille de route personnalisée</li>
+                <li>Projection 30/60/90 jours</li>
+                <li>Protocoles détaillés</li>
+                <li>Support prioritaire</li>
               </ul>
-              <Link href="/audit-complet?premium=true" className="btn-primary block text-center">
+              <Link href="/audit-complet" className="btn-primary w-full">
                 Débloquer mon potentiel
+                <Zap className="inline ml-2 w-5 h-5" />
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-20 px-4 bg-gradient-to-b from-transparent via-purple-900/10 to-transparent">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12">
-            Ce que tu vas <span className="gradient-text">découvrir</span>
-          </h2>
-          
-          <div className="grid md:grid-cols-3 gap-6">
+      {/* ============================================
+          🎯 CE QUE TU VAS DÉCOUVRIR
+          ============================================ */}
+      <section className="py-20 relative">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="section-title"
+          >
+            <h2>Ce que tu vas <span className="text-gradient">découvrir</span></h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { icon: '🔬', title: 'Analyse Métabolique', desc: 'Comprends comment ton corps brûle les calories et stocke l\'énergie' },
-              { icon: '🧬', title: 'Profil Hormonal', desc: 'Identifie les déséquilibres qui freinent ta progression' },
-              { icon: '🎯', title: 'Plan d\'Action', desc: 'Reçois un protocole personnalisé étape par étape' },
-            ].map((feature, i) => (
-              <div key={i} className="card text-center">
-                <div className="text-5xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                <p className="text-gray-400">{feature.desc}</p>
-              </div>
+              {
+                icon: '🔥',
+                title: 'Analyse Métabolique',
+                desc: 'Comprends comment ton corps brûle les calories et stocke l\'énergie',
+              },
+              {
+                icon: '🧬',
+                title: 'Profil Hormonal',
+                desc: 'Identifie les déséquilibres qui freinent ta progression',
+              },
+              {
+                icon: '💪',
+                title: 'Protocole d\'Action',
+                desc: 'Plan d\'action précis avec objectifs mesurables',
+              },
+              {
+                icon: '📊',
+                title: 'Projection 90 Jours',
+                desc: 'Visualise ta transformation avec des étapes claires',
+              },
+              {
+                icon: '🎯',
+                title: 'Nutrition Optimisée',
+                desc: 'Macros et timing personnalisés pour tes objectifs',
+              },
+              {
+                icon: '⚡',
+                title: 'Supplémentation',
+                desc: 'Stack personnalisé basé sur tes carences réelles',
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="glass-card text-center"
+              >
+                <div className="text-5xl mb-4">{item.icon}</div>
+                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                <p style={{ color: 'rgba(255, 255, 255, 0.7)' }}>{item.desc}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12">
-            Ils ont <span className="gradient-text">transformé</span> leur vie
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              { name: 'Thomas M.', result: '-12kg en 3 mois', text: 'L\'audit m\'a ouvert les yeux sur mes erreurs. Les conseils sont ultra précis.' },
-              { name: 'Sarah L.', result: '+40% énergie', text: 'Je comprends enfin pourquoi je stagnais. Le rapport est une mine d\'or.' },
-            ].map((t, i) => (
-              <div key={i} className="card">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#8DFFE0] to-[#9990EA] flex items-center justify-center font-bold text-black">
-                    {t.name[0]}
-                  </div>
-                  <div>
-                    <div className="font-bold">{t.name}</div>
-                    <div className="text-[#8DFFE0] text-sm">{t.result}</div>
-                  </div>
-                </div>
-                <p className="text-gray-300 italic">"{t.text}"</p>
-              </div>
-            ))}
+      {/* ============================================
+          🚀 FINAL CTA
+          ============================================ */}
+      <section className="py-20 relative">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="container"
+        >
+          <div className="glass-card-premium text-center max-w-4xl mx-auto">
+            <h2 className="mb-6">Prêt à découvrir ton <span className="text-gradient">potentiel</span> ?</h2>
+            <p className="text-xl mb-8" style={{ color: 'rgba(255, 255, 255, 0.85)' }}>
+              5 minutes. 40 questions. Des réponses qui changent tout.
+            </p>
+            <Link href="/audit-complet" className="btn-primary text-xl px-12 py-6">
+              🚀 Commencer maintenant — C'est gratuit
+              <ArrowRight className="inline ml-3 w-6 h-6" />
+            </Link>
           </div>
-        </div>
+        </motion.div>
       </section>
 
-      {/* CTA Final */}
-      <section className="py-20 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Prêt à découvrir ton <span className="gradient-text">potentiel</span> ?
-          </h2>
-          <p className="text-xl text-gray-400 mb-8">
-            5 minutes. 40 questions. Des réponses qui changent tout.
-          </p>
-          <Link href="/audit-complet" className="btn-primary text-xl pulse-glow">
-            🚀 Commencer maintenant — C'est gratuit
-          </Link>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-8 px-4 border-t border-white/10">
-        <div className="max-w-6xl mx-auto text-center text-gray-500">
-          <p>© 2024 Achzod Coaching. Tous droits réservés.</p>
-        </div>
+      {/* FOOTER */}
+      <footer className="py-12 border-t border-white/10 text-center">
+        <p style={{ color: 'rgba(255, 255, 255, 0.5)' }}>
+          © 2024 Achzod Coaching. Tous droits réservés.
+        </p>
       </footer>
     </div>
   );
