@@ -72,7 +72,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <Link href="/audit-complet" className="block text-center py-3 px-6 border border-[#8DFFE0] text-[#8DFFE0] rounded-lg hover:bg-[#8DFFE0]/10 transition">
+              <Link href="/audit-complet" className="block text-center py-3 px-6 border-2 border-[#8DFFE0] text-[#8DFFE0] rounded-xl font-bold hover:bg-[#8DFFE0]/10 hover:scale-[1.02] transition-all duration-300">
                 Commencer gratuitement
               </Link>
             </div>
