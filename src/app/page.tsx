@@ -42,12 +42,12 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto"
-            style={{ color: 'rgba(255, 255, 255, 0.85)' }}
+            className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed"
+            style={{ color: 'rgba(255, 255, 255, 0.9)' }}
           >
             Découvre ton <span className="text-gradient font-bold">potentiel inexploité</span> en 5 minutes.
             <br />
-            Rapport personnalisé généré par <span className="text-gradient font-bold">IA avancée</span>.
+            Rapport personnalisé généré par <span className="text-gradient font-bold">IA avancée</span>, relu par coach certifié.
           </motion.p>
 
           <motion.div
@@ -56,9 +56,12 @@ export default function HomePage() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
-            <Link href="/audit-complet" className="btn-primary group">
+            <Link href="/audit-complet" className="btn-primary group w-full sm:w-auto">
               🚀 Commencer l'audit GRATUIT
               <ArrowRight className="inline ml-2 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link href="#plans" className="btn-secondary w-full sm:w-auto">
+              Voir la version PREMIUM
             </Link>
           </motion.div>
 
@@ -93,7 +96,7 @@ export default function HomePage() {
       {/* ============================================
           💎 COMPARISON SECTION PREMIUM
           ============================================ */}
-      <section className="py-20 relative">
+      <section className="py-20 relative" id="plans">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -146,8 +149,8 @@ export default function HomePage() {
                   147€
                 </span>
               </div>
-              <p className="text-lg mb-6" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
-                Transformation complète
+              <p className="text-lg mb-6" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+                Transformation complète 15 sections
               </p>
               <ul className="feature-list">
                 <li>Analyse complète 15 sections</li>

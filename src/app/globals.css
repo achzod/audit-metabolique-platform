@@ -48,6 +48,9 @@ body {
   color: #ffffff;
   line-height: 1.6;
   overflow-x: hidden;
+  word-break: keep-all;
+  hyphens: manual;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -109,7 +112,7 @@ h3 {
 p {
   font-size: clamp(1rem, 2vw, 1.25rem);
   color: rgba(255, 255, 255, 0.85);
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
 /* ============================================
@@ -121,8 +124,9 @@ p {
   color: var(--color-dark);
   font-weight: 900;
   font-size: clamp(1rem, 2vw, 1.25rem);
-  padding: 20px 40px;
-  border-radius: 16px;
+  padding: 20px 44px;
+  border-radius: 18px;
+  letter-spacing: -0.01em;
   border: none;
   cursor: pointer;
   overflow: hidden;
@@ -166,8 +170,8 @@ p {
   color: var(--color-primary);
   font-weight: 800;
   font-size: clamp(1rem, 2vw, 1.25rem);
-  padding: 18px 36px;
-  border-radius: 16px;
+  padding: 18px 38px;
+  border-radius: 18px;
   border: 2px solid var(--color-primary);
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -243,7 +247,7 @@ p {
    ============================================ */
 .stat-card {
   text-align: center;
-  padding: 24px;
+  padding: 28px 24px;
   background: rgba(26, 26, 26, 0.5);
   backdrop-filter: blur(10px);
   border-radius: 16px;
@@ -280,14 +284,14 @@ p {
    🎭 SECTIONS & SPACING
    ============================================ */
 section {
-  padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 5vw, 2rem);
+  padding: clamp(2.5rem, 7vw, 5.5rem) clamp(1.25rem, 5vw, 2.5rem);
   position: relative;
 }
 
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 clamp(1rem, 3vw, 2rem);
+  padding: 0 clamp(1.25rem, 3vw, 2.5rem);
 }
 
 .section-title {
